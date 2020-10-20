@@ -1,12 +1,25 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, TextInput} from 'react-native';
+import Button from './app/components/Button';
+import Box from './app/components/Box';
 
 const App = () => {
+  const [name, setName] = useState('');
+
+  const handleInputChange = (text) => {
+    return setName(text);
+  };
+
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.text}>React{'\n'}Native</Text>
-      </View>
+      <Box>
+        <Text style={styles.label}>First Name:</Text>
+        <TextInput
+          style={styles.textInput}
+          onChangeText={handleInputChange}
+          value={name}></TextInput>
+        <Text style={styles.output}>{name}</Text>
+      </Box>
     </View>
   );
 };
@@ -14,16 +27,25 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'slateblue',
+    backgroundColor: '#eee',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-    fontSize: 32,
-    color: '#fff',
-    letterSpacing: 5,
-    padding: 20,
-    textAlign: 'center',
+  label: {
+    color: 'black',
+    fontSize: 14,
+    fontWeight: '700',
+    marginBottom: 12,
+  },
+  textInput: {
+    backgroundColor: '#fff',
+    padding: 12,
+    width: 200,
+    fontSize: 18,
+    marginBottom: 15,
+  },
+  output: {
+    fontSize: 30,
   },
 });
 
