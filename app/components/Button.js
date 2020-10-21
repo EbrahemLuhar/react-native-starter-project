@@ -1,35 +1,30 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableHighlight} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
-const Button = ({title, color}) => {
-  const styles = StyleSheet.create({
-    buttonContainer: {
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    button: {
-      color: 'white',
-      fontSize: 22,
-      paddingVertical: 10,
-      paddingHorizontal: 25,
-      backgroundColor: color,
-      width: 120,
-      marginBottom: 5,
-      textAlign: 'center',
-      borderRadius: 6,
-    },
-  });
-
+const Button = (props) => {
   return (
-    <TouchableHighlight
-      onPress={() => {
-        alert('You pressed a button');
-      }}>
-      <View style={styles.buttonContainer}>
-        <Text style={styles.button}>{title}</Text>
-      </View>
-    </TouchableHighlight>
+    <View style={styles.container}>
+      <Text style={styles.text}>{props.children}</Text>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#eee',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 60,
+    height: 60,
+    margin: 10,
+    borderRadius: 10,
+    textAlign: 'center',
+  },
+  text: {
+    color: '#340340',
+    fontSize: 40,
+    fontWeight: '700',
+  },
+});
 
 export default Button;
