@@ -1,16 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import MainNumber from './MainNumber';
 import Button from './Button';
 
 const Box = (props) => {
+  const [num, setNum] = useState(0);
+
+  function plus() {
+    setNum(num + 1);
+  }
+
+  function minus() {
+    setNum(num - 1);
+  }
+
   return (
     <View style={styles.container}>
       <Text>Counter</Text>
-      <MainNumber />
+      <MainNumber>{num}</MainNumber>
       <View style={styles.buttonSection}>
-        <Button>-</Button>
-        <Button>+</Button>
+        <Button action={minus}>-</Button>
+        <Button action={plus}>+</Button>
       </View>
     </View>
   );

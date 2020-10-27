@@ -1,11 +1,18 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableHighlight} from 'react-native';
 
 const Button = (props) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{props.children}</Text>
-    </View>
+    <TouchableHighlight
+      onPress={() => {
+        props.action();
+      }}
+      style={styles.touch}
+      underlayColor="#5bae07">
+      <View style={styles.container}>
+        <Text style={styles.text}>{props.children}</Text>
+      </View>
+    </TouchableHighlight>
   );
 };
 
@@ -24,6 +31,9 @@ const styles = StyleSheet.create({
     color: '#340340',
     fontSize: 40,
     fontWeight: '700',
+  },
+  touch: {
+    borderRadius: 10,
   },
 });
 

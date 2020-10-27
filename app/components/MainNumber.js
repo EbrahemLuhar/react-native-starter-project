@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const MainNumber = (props) => {
   return (
     <View>
-      <Text style={styles.number}>10</Text>
+      <Text style={styles.number}>{props.children}</Text>
     </View>
   );
 };
